@@ -147,6 +147,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="HashTable.h" />
+    <ClInclude Include="PhoneListing.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
