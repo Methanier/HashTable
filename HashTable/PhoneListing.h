@@ -13,6 +13,7 @@ using namespace std;
 class PhoneListing
 {
 public:
+	//Constructors
 	PhoneListing()
 	{
 		name = "";
@@ -21,6 +22,7 @@ public:
 	PhoneListing(string n) : name{ n } {}
 	PhoneListing(string n, string p) : name{ n }, phoneNumber{ p } {}
 
+	
 	const string & GetName() const
 	{
 		return name;
@@ -31,14 +33,20 @@ public:
 		return phoneNumber;
 	}
 
-	const bool operator==(const PhoneListing & inListing)
+	//Operator Overloads
+	const bool operator==(const PhoneListing & inListing) const
 	{
 		return (name == inListing.GetName()) ? true : false;
 	}
 
-	const bool operator!=(const PhoneListing & inListing)
+	const bool operator!=(const PhoneListing & inListing) const
 	{
 		return !(name == inListing.GetName()) ? true : false;
+	}
+
+	string ToString()
+	{
+		return "Name: " + name + " Phone Number: " + phoneNumber;
 	}
 
 private:
@@ -46,11 +54,12 @@ private:
 	string phoneNumber;
 };
 
-
+//Overloads hash class with PhoneListing for size_t operator () overload
 template<>
 class hash<PhoneListing>
 {
 public:
+	//Overloads size_t operator () for PhoneListing class on hash class
 	size_t operator()(const PhoneListing & pl) const
 	{
 		static hash<string> h;
